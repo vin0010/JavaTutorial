@@ -15,7 +15,16 @@ public class LambdaExample {
 			int actualLength = s.length();
 			return actualLength>maxLength;
 		};
+		TestFunction<String, Integer, Boolean> testFunction = (s, maxLength) -> {
+			int actualLength = s.length();
+			return actualLength>maxLength;
+		};
+		testfunctionCallpass(testFunction);
 		System.out.println(exceedsMaxLength.apply("vinoth", 15));
+	}
+
+	private static void testfunctionCallpass(TestFunction<String, Integer, Boolean> exceedsMaxLength) {
+		exceedsMaxLength.apply("vinoth", 6);
 	}
 
 }
